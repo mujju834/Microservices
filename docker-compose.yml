@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  authservice:
+    build: ./AuthService
+    ports:
+      - "5000:5000"
+    networks:
+      - microservices-network
+
+  orderservice:
+    build: ./OrderService
+    ports:
+      - "5001:5001"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
